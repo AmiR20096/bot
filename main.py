@@ -40,6 +40,7 @@ def webhook():
         reply = get_groq_response(user_text)
         send_message(chat_id, reply)
     return "ok"
+import os
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))# Paste your code here
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
