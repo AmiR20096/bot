@@ -60,8 +60,8 @@ def webhook():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "OK", 200
 
-bot.remove_webhook()
-bot.set_webhook(url=f'https://your-project-name.onrender.com/{TELEGRAM_BOT_TOKEN}')  # بعداً آدرس رو جایگزین کن
 
 if __name__ == "__main__":
+    bot.remove_webhook()
+    bot.set_webhook(url='https://vixa-bot.onrender.com/7139419433:AAG4AI-RuJqqTsgExQk5NXjsh5FHEF42hLs')  # آدرس واقعی Render رو جایگزین کن
     app.run(host='0.0.0.0', port=8080)
