@@ -14,7 +14,7 @@ GROQ_API_KEY = "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"
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 BOT_API_URL = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}"
 
-@app.route('/')
+@app.main.py('/')
 def home():
     return "ربات تلگرام با موفقیت اجرا شد."
 
