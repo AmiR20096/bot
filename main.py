@@ -2,13 +2,11 @@ import os
 import requests
 from flask import Flask, request
 
-# تنظیمات ربات
 TELEGRAM_TOKEN = "8148296983:AAGeL81w9_RhAf4AsAlywE_YiGx0nE_aksY"
 GROQ_API_KEY = "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"
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 BOT_API_URL = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}"
 
-# Flask
 app = Flask(__name__)
 
 @app.route('/')
@@ -56,7 +54,6 @@ def send_message(chat_id, text):
     }
     requests.post(url, json=payload)
 
-# برای تنظیم webhook
 def set_webhook():
     webhook_url = f"https://your-domain.com/{TELEGRAM_TOKEN}"  # آدرس واقعی دامنه یا رندر رو جایگزین کن
     response = requests.get(f"{BOT_API_URL}/setWebhook?url={webhook_url}")
