@@ -8,7 +8,6 @@ TELEGRAM_TOKEN = "7139419433:AAG4AI-RuJqqTsgExQk5NXjsh5FHEF42hLs"
 GROQ_API_KEY = "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"
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 
-# ارسال پیام به تلگرام
 def send_message(chat_id, text):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     data = {"chat_id": chat_id, "text": text}
