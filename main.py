@@ -1,8 +1,13 @@
 import os
 import requests
 from flask import Flask, request
+from flask import Flask
 
 app = Flask(_name_)
+
+@app.route('/')
+def home():
+    return "پروژه Flask شما با موفقیت و به صورت حرفه‌ای اجرا شد."
 
 TELEGRAM_TOKEN = "7139419433:AAG4AI-RuJqqTsgExQk5NXjsh5FHEF42hLs"
 GROQ_API_KEY = "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"
