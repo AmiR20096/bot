@@ -9,7 +9,7 @@ app = Flask(__name__)
 def home():
     return "پروژه Flask شما با موفقیت و به صورت حرفه‌ای اجرا شد."
 
-TELEGRAM_TOKEN = "7139419433:AAG4AI-RuJqqTsgExQk5NXjsh5FHEF42hLs"
+TELEGRAM_TOKEN = "8148296983:AAGeL81w9_RhAf4AsAlywE_YiGx0nE_aksY"
 GROQ_API_KEY = "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"
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 BOT_API_URL = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}"
