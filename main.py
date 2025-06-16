@@ -5,9 +5,7 @@ from flask import Flask, request
 TELEGRAM_TOKEN = "8148296983:AAGeL81w9_RhAf4AsAlywE_YiGx0nE_aksY"
 GROQ_API_KEY = "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"
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
-BOT_API_URL = " https://api.telegram.org/bot8148296983:AAGeL81w9_RhAf4AsAlywE_YiGx0nE_aksY{TELEGRAM_TOKEN}"
-
-
+BOT_API_URL = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}"
 
 app = Flask(__name__)
 
@@ -46,6 +44,7 @@ def ask_groq_gpt(message):
     if response.status_code == 200:
         return response.json()["choices"][0]["message"]["content"].strip()
     else:
+        print("Error from Groq API:", response.status_code, response.text)
         return "در پردازش پاسخ مشکلی پیش آمد."
 
 def send_message(chat_id, text):
@@ -54,13 +53,15 @@ def send_message(chat_id, text):
         "chat_id": chat_id,
         "text": text
     }
-    requests.post(url, json=payload)
+    response = requests.post(url, json=payload)
+    if response.status_code != 200:
+        print("Error sending message:", response.status_code, response.text)
 
 def set_webhook():
-    webhook_url = f"https://your-domain.com/{TELEGRAM_TOKEN}"  # آدرس واقعی دامنه یا رندر رو جایگزین کن
+    webhook_url = f"https://YOUR_RAILWAY_OR_RENDER_DOMAIN/{TELEGRAM_TOKEN}"
     response = requests.get(f"{BOT_API_URL}/setWebhook?url={webhook_url}")
-    print("Webhook set:", response.json())
+    print("Webhook set response:", response.json())
 
 if __name__ == "__main__":
-    set_webhook()  # فقط یکبار لازمه اجرا شه
+    set_webhook()
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
