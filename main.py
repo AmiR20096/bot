@@ -1,12 +1,9 @@
 import os
 import requests
-from flask import Flask
+from flask import Flask, request
 
-app = Flask(__name__)
+app = Flask(_name_)
 
-@app.route('/')
-def home():
-    return "پروژه Flask شما با موفقیت و به صورت حرفه‌ای اجرا شد."
 TELEGRAM_TOKEN = "7139419433:AAG4AI-RuJqqTsgExQk5NXjsh5FHEF42hLs"
 GROQ_API_KEY = "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"
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
@@ -56,5 +53,5 @@ def send_message(chat_id, text):
     }
     requests.post(url, json=payload)
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
