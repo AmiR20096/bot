@@ -14,9 +14,13 @@ GROQ_API_KEY = "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"
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 BOT_API_URL = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}"
 
+from flask import Flask
+
+app = Flask(__name__)
+
 @app.route('/')
 def home():
-    return "ربات تلگرام با موفقیت اجرا شد."
+    return "سلام دنیا"
 
 @app.route(f'/{TELEGRAM_TOKEN}', methods=['POST'])
 def webhook():
