@@ -5,7 +5,8 @@ from flask import Flask, request
 TELEGRAM_TOKEN = "8148296983:AAGeL81w9_RhAf4AsAlywE_YiGx0nE_aksY"
 GROQ_API_KEY = "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"
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
-BOT_API_URL = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}"
+BOT_API_URL =f"https://your-railway-url.up.railway.app/{TELEGRAM_TOKEN}"
+
 
 app = Flask(__name__)
 
